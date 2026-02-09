@@ -1,0 +1,15 @@
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.AssemblyInfoInputs.cache
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.AssemblyInfo.cs
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.csproj.CoreCompileInputs.cache
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.sourcelink.json
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\bin\Debug\net10.0\NumberGuesserUltimate.exe
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\bin\Debug\net10.0\NumberGuesserUltimate.deps.json
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\bin\Debug\net10.0\NumberGuesserUltimate.runtimeconfig.json
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\bin\Debug\net10.0\NumberGuesserUltimate.dll
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\bin\Debug\net10.0\NumberGuesserUltimate.pdb
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.dll
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\refint\NumberGuesserUltimate.dll
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.pdb
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\NumberGuesserUltimate.genruntimeconfig.cache
+C:\Users\marcos.pereira\OneDrive - EBM\Documentos\NumberGuesserUltimate\obj\Debug\net10.0\ref\NumberGuesserUltimate.dll

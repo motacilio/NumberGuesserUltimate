@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marcos.pereira\\Downloads\\cracing\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj": {}
+    "C:\\Users\\marcos.pereira\\OneDrive - EBM\\Documentos\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marcos.pereira\\Downloads\\cracing\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj": {
+    "C:\\Users\\marcos.pereira\\OneDrive - EBM\\Documentos\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marcos.pereira\\Downloads\\cracing\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj",
+        "projectUniqueName": "C:\\Users\\marcos.pereira\\OneDrive - EBM\\Documentos\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj",
         "projectName": "NumberGuesserUltimate",
-        "projectPath": "C:\\Users\\marcos.pereira\\Downloads\\cracing\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj",
+        "projectPath": "C:\\Users\\marcos.pereira\\OneDrive - EBM\\Documentos\\NumberGuesserUltimate\\NumberGuesserUltimate.csproj",
         "packagesPath": "C:\\Users\\marcos.pereira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marcos.pereira\\Downloads\\cracing\\NumberGuesserUltimate\\obj\\",
+        "outputPath": "C:\\Users\\marcos.pereira\\OneDrive - EBM\\Documentos\\NumberGuesserUltimate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marcos.pereira\\AppData\\Roaming\\NuGet\\NuGet.Config"
