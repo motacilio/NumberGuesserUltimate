@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        NumberGuesser ng = new NumberGuesser();
+        string option;
+
+        do
+        {
+            NumberGuesser ng = new NumberGuesser();
+            Console.WriteLine("Press 1 to play again or any key to leave");
+            option = Console.ReadLine();
+        } while (option.Equals("1"));
     }
 }
