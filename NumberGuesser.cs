@@ -8,6 +8,11 @@ public class NumberGuesser
 
     public NumberGuesser()
     {
+        Play();
+    }
+
+    private void Play()
+    {
         random = new Random();
         numberToGuess = random.Next(1, 100);
 
@@ -16,29 +21,49 @@ public class NumberGuesser
 
         int attempts = DifficultySelection();
 
-        for (int i = 1; i <= attempts; i++)
+        int i = 1;
+        string option;
+        while (i <= attempts)
         {
-            Console.WriteLine("Enter your guess: ");
-            currentAttempt = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter your guess (press 'h/H' for a hint): ");
+            option = Console.ReadLine();
 
-            if (currentAttempt == numberToGuess)
+            if (option.Equals("h", StringComparison.OrdinalIgnoreCase))
             {
-                Console.WriteLine(
-                    "Congratulations! You guessed the correct number in {0} attempts.",
-                    i
-                );
-                break;
+                Hint(numberToGuess);
+                continue;
             }
-            else if (currentAttempt > numberToGuess)
+            else if (int.TryParse(option, out currentAttempt))
             {
-                Console.WriteLine("Incorrect! The number is less than {0}", currentAttempt);
+                if (currentAttempt == numberToGuess)
+                {
+                    Console.WriteLine(
+                        "Congratulations! You guessed the correct number in {0} attempts.",
+                        i
+                    );
+                    break;
+                }
+                else if (currentAttempt > 100 || currentAttempt < 0)
+                {
+                    Console.WriteLine("Digite um número entre 0 e 100");
+                }
+                else if (currentAttempt > numberToGuess)
+                {
+                    Console.WriteLine("Incorrect! The number is less than {0}", currentAttempt);
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect! The number is greater than {0}", currentAttempt);
+                }
+                i++;
             }
             else
             {
-                Console.WriteLine("Incorrect! The number is greater than {0}", currentAttempt);
+                Console.WriteLine("Digite um opção válida.");
+                continue;
             }
 
-            if (i == attempts)
+            if (i > attempts)
             {
                 Console.WriteLine("Game Over! \nThe number is {0}", numberToGuess);
             }
@@ -57,18 +82,24 @@ public class NumberGuesser
 
         do
         {
-            difficulty = Convert.ToInt32(Console.ReadLine());
-            if (difficulty == 1)
+            if (int.TryParse(Console.ReadLine(), out difficulty))
             {
-                attempts = 10;
-            }
-            else if (difficulty == 2)
-            {
-                attempts = 5;
-            }
-            else if (difficulty == 3)
-            {
-                attempts = 3;
+                if (difficulty == 1)
+                {
+                    attempts = 10;
+                }
+                else if (difficulty == 2)
+                {
+                    attempts = 5;
+                }
+                else if (difficulty == 3)
+                {
+                    attempts = 3;
+                }
+                else
+                {
+                    Console.WriteLine("Write a valid difficulty");
+                }
             }
             else
             {
@@ -77,5 +108,42 @@ public class NumberGuesser
         } while (difficulty < 1 || difficulty > 3);
 
         return attempts;
+    }
+
+    private void Hint(int numberToGuess)
+    {
+        Random rdn = new Random();
+        int option = rdn.Next(0, 2);
+        int number;
+
+        if (option == 0)
+        {
+            Console.WriteLine(
+                "The number is between {0} and {1}",
+                numberToGuess - (rdn.Next(1, 15)),
+                numberToGuess + (rdn.Next(1, 15))
+            );
+        }
+        else if (option == 1)
+        {
+            number = rdn.Next(0, 100);
+            if (number == numberToGuess)
+            {
+                number++;
+            }
+            Console.WriteLine("The number is NOT {0}", number);
+        }
+        else if (option == 2)
+        {
+            number = rdn.Next(0, 100);
+            if (numberToGuess > number)
+            {
+                Console.WriteLine("The number is less than {0}", number);
+            }
+            else
+            {
+                Console.WriteLine("The number is greater than {0}", number);
+            }
+        }
     }
 }
