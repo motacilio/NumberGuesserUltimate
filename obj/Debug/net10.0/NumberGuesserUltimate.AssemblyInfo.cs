@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NumberGuesserUltimate")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c23990950ff6dd6ddc63009cfdb3dccfe1811b88")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95f09da9e95ea67d583daf0bdce6e5daacc7b8e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("NumberGuesserUltimate")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NumberGuesserUltimate")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

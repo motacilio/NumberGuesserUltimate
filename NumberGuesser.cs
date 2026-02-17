@@ -2,16 +2,28 @@ using System.Diagnostics;
 
 public class NumberGuesser
 {
+    Difficulty difficulty;
     int attempts;
     int numberToGuess;
     int currentAttempt;
     int hintsLeft;
-    Stopwatch stopwatch;
+    Stopwatch? stopwatch;
     Random? random;
-    
+
+    SortedSet<int> easyRank = new SortedSet<int>();
+    SortedSet<int> mediumRank = new SortedSet<int>();
+    SortedSet<int> hardRank = new SortedSet<int>();
+
     public NumberGuesser()
     {
-        Play();
+        string? option;
+
+        do
+        {
+            Play();
+            Console.WriteLine("Press 1 to play again or any key to leave");
+            option = Console.ReadLine() ?? string.Empty;
+        } while (option.Equals("1"));
     }
 
     private void Play()
@@ -22,7 +34,7 @@ public class NumberGuesser
         Console.WriteLine("Welcome to the NumberGuesser!");
         Console.WriteLine("Im thinking of a number between 1 and 100.");
 
-        attempts = DifficultySelection();
+        DifficultySelection();
         hintsLeft = 3;
         int i = 1;
 
@@ -30,6 +42,8 @@ public class NumberGuesser
         stopwatch = Stopwatch.StartNew();
         while (i <= attempts)
         {
+            // for test
+            Console.WriteLine($"The number is {numberToGuess}");
             Console.WriteLine(
                 "Enter your guess (press 'h/H' for a hint - {0} hints remaining): ",
                 hintsLeft
@@ -53,12 +67,17 @@ public class NumberGuesser
             {
                 if (currentAttempt == numberToGuess)
                 {
-                    Console.WriteLine(
-                        "Congratulations! You guessed the correct number in {0} attempts.",
-                        i
-                    );
                     stopwatch.Stop();
-                    Console.WriteLine("Time taken: {0} seconds", stopwatch.Elapsed.TotalSeconds);
+
+                    Console.WriteLine(
+                        $"Congratulations! You guessed the correct number in {i} attempts."
+                    );
+                    Console.WriteLine($"Time taken: {stopwatch.Elapsed.TotalSeconds} seconds");
+
+                    AddRank(difficulty, i);
+
+                    PrintRank();
+
                     break;
                 }
                 else if (currentAttempt > 100 || currentAttempt < 0)
@@ -90,10 +109,9 @@ public class NumberGuesser
         }
     }
 
-    private int DifficultySelection()
+    private void DifficultySelection()
     {
-        int difficulty = -1;
-        int attempts = 0;
+        int option = -1;
 
         Console.WriteLine("Please select the difficulty level:");
         Console.WriteLine("1. Easy (10 chances)");
@@ -102,19 +120,22 @@ public class NumberGuesser
 
         do
         {
-            if (int.TryParse(Console.ReadLine(), out difficulty))
+            if (int.TryParse(Console.ReadLine(), out option))
             {
-                if (difficulty == 1)
+                if (option == 1)
                 {
                     attempts = 10;
+                    this.difficulty = Difficulty.Easy;
                 }
-                else if (difficulty == 2)
+                else if (option == 2)
                 {
                     attempts = 5;
+                    this.difficulty = Difficulty.Medium;
                 }
-                else if (difficulty == 3)
+                else if (option == 3)
                 {
                     attempts = 3;
+                    this.difficulty = Difficulty.Hard;
                 }
                 else
                 {
@@ -125,9 +146,7 @@ public class NumberGuesser
             {
                 Console.WriteLine("Write a valid difficulty");
             }
-        } while (difficulty < 1 || difficulty > 3);
-
-        return attempts;
+        } while (option < 1 || option > 3);
     }
 
     private void Hint(int numberToGuess)
@@ -165,5 +184,47 @@ public class NumberGuesser
                 Console.WriteLine("The number is greater than {0}", number);
             }
         }
+    }
+
+    private void AddRank(Difficulty difficulty, int attempts)
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                easyRank.Add(attempts);
+                break;
+            case Difficulty.Medium:
+                mediumRank.Add(attempts);
+                break;
+            case Difficulty.Hard:
+                hardRank.Add(attempts);
+                break;
+        }
+    }
+
+    public void PrintRank()
+    {
+        Console.WriteLine("Easy Rank");
+        foreach (int rank in easyRank)
+        {
+            Console.WriteLine($"{rank}");
+        }
+        Console.WriteLine("Medium Rank");
+        foreach (int rank in mediumRank)
+        {
+            Console.WriteLine($"{rank}");
+        }
+        Console.WriteLine("Hard Rank");
+        foreach (int rank in hardRank)
+        {
+            Console.WriteLine($"{rank}");
+        }
+    }
+
+    enum Difficulty
+    {
+        Easy = 1,
+        Medium = 2,
+        Hard = 3,
     }
 }
