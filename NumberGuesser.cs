@@ -3,6 +3,7 @@ public class NumberGuesser
     int attempts;
     int numberToGuess;
     int currentAttempt;
+    int hintsLeft;
 
     Random random;
 
@@ -19,19 +20,27 @@ public class NumberGuesser
         Console.WriteLine("Welcome to the NumberGuesser!");
         Console.WriteLine("Im thinking of a number between 1 and 100.");
 
-        int attempts = DifficultySelection();
-
+        attempts = DifficultySelection();
+        hintsLeft = 3;
         int i = 1;
         string option;
         while (i <= attempts)
         {
-            Console.WriteLine("Enter your guess (press 'h/H' for a hint): ");
+            Console.WriteLine("Enter your guess (press 'h/H' for a hint - {0} hints remaining): ", hintsLeft);
             option = Console.ReadLine();
 
             if (option.Equals("h", StringComparison.OrdinalIgnoreCase))
             {
-                Hint(numberToGuess);
-                continue;
+                if (hintsLeft > 0)
+                {
+                    Hint(numberToGuess);
+                    hintsLeft--;
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("No more hints remaining!");
+                }
             }
             else if (int.TryParse(option, out currentAttempt))
             {
@@ -120,8 +129,8 @@ public class NumberGuesser
         {
             Console.WriteLine(
                 "The number is between {0} and {1}",
-                numberToGuess - (rdn.Next(1, 15)),
-                numberToGuess + (rdn.Next(1, 15))
+                numberToGuess - rdn.Next(1, 15),
+                numberToGuess + rdn.Next(1, 15)
             );
         }
         else if (option == 1)
