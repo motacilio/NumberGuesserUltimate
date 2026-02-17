@@ -1,12 +1,14 @@
+using System.Diagnostics;
+
 public class NumberGuesser
 {
     int attempts;
     int numberToGuess;
     int currentAttempt;
     int hintsLeft;
-
-    Random random;
-
+    Stopwatch stopwatch;
+    Random? random;
+    
     public NumberGuesser()
     {
         Play();
@@ -23,11 +25,16 @@ public class NumberGuesser
         attempts = DifficultySelection();
         hintsLeft = 3;
         int i = 1;
+
         string option;
+        stopwatch = Stopwatch.StartNew();
         while (i <= attempts)
         {
-            Console.WriteLine("Enter your guess (press 'h/H' for a hint - {0} hints remaining): ", hintsLeft);
-            option = Console.ReadLine();
+            Console.WriteLine(
+                "Enter your guess (press 'h/H' for a hint - {0} hints remaining): ",
+                hintsLeft
+            );
+            option = Console.ReadLine() ?? string.Empty;
 
             if (option.Equals("h", StringComparison.OrdinalIgnoreCase))
             {
@@ -50,6 +57,8 @@ public class NumberGuesser
                         "Congratulations! You guessed the correct number in {0} attempts.",
                         i
                     );
+                    stopwatch.Stop();
+                    Console.WriteLine("Time taken: {0} seconds", stopwatch.Elapsed.TotalSeconds);
                     break;
                 }
                 else if (currentAttempt > 100 || currentAttempt < 0)
@@ -75,6 +84,8 @@ public class NumberGuesser
             if (i > attempts)
             {
                 Console.WriteLine("Game Over! \nThe number is {0}", numberToGuess);
+                stopwatch.Stop();
+                Console.WriteLine("Time taken: {0} seconds", stopwatch.Elapsed.TotalSeconds);
             }
         }
     }
